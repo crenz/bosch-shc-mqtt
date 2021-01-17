@@ -1,0 +1,7 @@
+{     
+    "broker": "tcp://localhost:8883",
+    "clientID": "bosch-shc-mqtt",
+    "username": "user",
+    "password": "password",
+    "loglevel": "info"
+  }
