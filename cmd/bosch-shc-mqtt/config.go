@@ -6,11 +6,11 @@ import (
 )
 
 type Config struct {
-	Broker   string
-	ClientID string
-	Username string
-	Password string
-	Loglevel string
+	MqttBrokerUrl string
+	MqttClientID  string
+	MqttUsername  string
+	MqttPassword  string
+	Loglevel      string
 }
 
 func configFromFile(path string) (config *Config, e error) {

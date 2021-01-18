@@ -24,11 +24,11 @@ func TestConfigFromFile(t *testing.T) {
 	path := "../../test/config.json"
 
 	testConfig := Config{
-		Broker:   "tcp://localhost:8883",
-		ClientID: "bosch-shc-mqtt",
-		Username: "user",
-		Password: "password",
-		Loglevel: "info",
+		MqttBrokerUrl: "tcp://localhost:8883",
+		MqttClientID:  "bosch-shc-mqtt",
+		MqttUsername:  "user",
+		MqttPassword:  "password",
+		Loglevel:      "info",
 	}
 
 	c, err = configFromFile(path)
@@ -36,10 +36,10 @@ func TestConfigFromFile(t *testing.T) {
 		wd, _ := os.Getwd()
 		t.Errorf("Failed to read config file %s: %v (working dir: %s)", path, err, wd)
 	} else {
-		compareTestData(t, "Broker", c.Broker, testConfig.Broker)
-		compareTestData(t, "ClientID", c.ClientID, testConfig.ClientID)
-		compareTestData(t, "Username", c.Username, testConfig.Username)
-		compareTestData(t, "Password", c.Password, testConfig.Password)
+		compareTestData(t, "MqttBroker", c.MqttBrokerUrl, testConfig.MqttBrokerUrl)
+		compareTestData(t, "MqttClientID", c.MqttClientID, testConfig.MqttClientID)
+		compareTestData(t, "MqttUsername", c.MqttUsername, testConfig.MqttUsername)
+		compareTestData(t, "MqttPassword", c.MqttPassword, testConfig.MqttPassword)
 		compareTestData(t, "Loglevel", c.Loglevel, testConfig.Loglevel)
 	}
 }
