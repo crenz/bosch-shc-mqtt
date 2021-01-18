@@ -38,5 +38,7 @@ func main() {
 		c = &Config{}
 	}
 
-	log.SetLevel(getLogLevel(c.Loglevel))
+	if c.Loglevel != "" {
+		log.SetLevel(getLogLevel(c.Loglevel))
+	}
 }
