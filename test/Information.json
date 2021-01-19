@@ -1,0 +1,57 @@
+{
+    "apiVersions": [
+        "1.2",
+        "2.1"
+    ],
+    "softwareUpdateState": {
+        "@type": "softwareUpdateState",
+        "swUpdateState": "NO_UPDATE_AVAILABLE",
+        "swUpdateLastResult": "UPDATE_SUCCESS",
+        "swUpdateAvailableVersion": "",
+        "swInstalledVersion": "9.22.1834-16690",
+        "swActivationDate": {
+            "@type": "softwareActivationDate",
+            "timeout": 604800000
+        }
+    },
+    "claimed": true,
+    "country": "DEU",
+    "tacVersion": "DEU-12",
+    "shcIpAddress": "192.168.0.3",
+    "clientIds": [
+        "99403939-09CF-44AB-9112-705739757458"
+    ],
+    "featureToggles": {
+        "app-store-rating.ios": true,
+        "app-logging": false,
+        "siri-shortcuts": false,
+        "shading.slats.values": false,
+        "alarm.gaps.notifications": false,
+        "psm.pc.pairing": true,
+        "smart-light.pairing": true,
+        "wls.pairing": true,
+        "cameras.extension": true,
+        "shading.advance.menu": true,
+        "app-store-rating.android": true,
+        "analytics.toggle": true,
+        "whitegoods.pairing": true,
+        "cloud.tokenvalidation": true
+    },
+    "connectivityVersions": [
+        {
+            "name": "claiming",
+            "minVersion": 1,
+            "maxVersion": 1
+        },
+        {
+            "name": "noncePairing",
+            "minVersion": 1,
+            "maxVersion": 1
+        },
+        {
+            "name": "buttonPairing",
+            "minVersion": 1,
+            "maxVersion": 1
+        }
+    ]
+}

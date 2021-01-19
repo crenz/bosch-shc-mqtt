@@ -3,9 +3,11 @@ package main
 import (
 	"flag"
 
+	"github.com/crenz/bosch-shc-mqtt/pkg/api"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/mattn/go-colorable"
 	log "github.com/sirupsen/logrus"
-	//	"github.com/crenz/bosch-shc-mqtt/pkg/bosch-shc-api"
+	//	"github.com/crenz/bosch-shc-mqtt/pkg/api"
 )
 
 const defaultLogLevel = log.ErrorLevel
@@ -26,7 +28,7 @@ func main() {
 	pConfigFile := flag.String("c", "", "path to configuration file")
 	flag.Parse()
 
-	var c *Config
+	var c *config = &config{}
 	var err error
 	if len(*pConfigFile) > 0 {
 		c, err = configFromFile(*pConfigFile)
@@ -34,11 +36,12 @@ func main() {
 			log.Errorf("Error reading config file %s: %v", *pConfigFile, err)
 			return
 		}
-	} else {
-		c = &Config{}
 	}
 
 	if c.Loglevel != "" {
 		log.SetLevel(getLogLevel(c.Loglevel))
 	}
+
+	api := api.New(c.ShcIPAddress)
+	spew.Dump(api.Information())
 }

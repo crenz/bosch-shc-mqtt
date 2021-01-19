@@ -13,21 +13,30 @@ func compareTestData(t *testing.T, field string, got string, want string) {
 }
 
 func TestConfigFromFile(t *testing.T) {
-	var c *Config
+	var c *config
 	var err error
 
+	// Reading in empty file should fail
 	c, err = configFromFile("")
 	if c != nil || err == nil {
 		t.Errorf("configFromFile(\"\") = (%q, %q), want nil", c, err)
 	}
 
+	// Reading in non-JSON file should fail
+	c, err = configFromFile("config_test.go")
+	if c != nil || err == nil {
+		t.Errorf("configFromFile(\"\") = (%q, %q), want nil", c, err)
+	}
+
+	// Reading in test configuration should pass
 	path := "../../test/config.json"
 
-	testConfig := Config{
-		MqttBrokerUrl: "tcp://localhost:8883",
+	testConfig := config{
+		MqttBrokerURL: "tcp://localhost:8883",
 		MqttClientID:  "bosch-shc-mqtt",
 		MqttUsername:  "user",
 		MqttPassword:  "password",
+		ShcIPAddress:  "192.168.0.10",
 		Loglevel:      "info",
 	}
 
@@ -36,10 +45,11 @@ func TestConfigFromFile(t *testing.T) {
 		wd, _ := os.Getwd()
 		t.Errorf("Failed to read config file %s: %v (working dir: %s)", path, err, wd)
 	} else {
-		compareTestData(t, "MqttBroker", c.MqttBrokerUrl, testConfig.MqttBrokerUrl)
+		compareTestData(t, "MqttBroker", c.MqttBrokerURL, testConfig.MqttBrokerURL)
 		compareTestData(t, "MqttClientID", c.MqttClientID, testConfig.MqttClientID)
 		compareTestData(t, "MqttUsername", c.MqttUsername, testConfig.MqttUsername)
 		compareTestData(t, "MqttPassword", c.MqttPassword, testConfig.MqttPassword)
+		compareTestData(t, "ShcIPAddress", c.ShcIPAddress, testConfig.ShcIPAddress)
 		compareTestData(t, "Loglevel", c.Loglevel, testConfig.Loglevel)
 	}
 }

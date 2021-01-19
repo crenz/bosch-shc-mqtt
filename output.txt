@@ -1,0 +1,37 @@
+(api.Information) {
+ APIVersions: ([]string) <nil>,
+ SoftwareUpdateState: (struct { Type string "json:\"@type\""; SwUpdateState string "json:\"swUpdateState\""; SwUpdateLastResult string "json:\"swUpdateLastResult\""; SwUpdateAvailableVersion string "json:\"swUpdateAvailableVersion\""; SwInstalledVersion string "json:\"swInstalledVersion\""; SwActivationDate struct { Type string "json:\"@type\""; Timeout int "json:\"timeout\"" } "json:\"swActivationDate\"" }) {
+  Type: (string) "",
+  SwUpdateState: (string) "",
+  SwUpdateLastResult: (string) "",
+  SwUpdateAvailableVersion: (string) "",
+  SwInstalledVersion: (string) "",
+  SwActivationDate: (struct { Type string "json:\"@type\""; Timeout int "json:\"timeout\"" }) {
+   Type: (string) "",
+   Timeout: (int) 0
+  }
+ },
+ Claimed: (bool) false,
+ Country: (string) "",
+ TacVersion: (string) "",
+ ShcIPAddress: (string) "",
+ ClientIds: ([]string) <nil>,
+ FeatureToggles: (struct { AppStoreRatingIos bool "json:\"app-store-rating.ios\""; AppLogging bool "json:\"app-logging\""; SiriShortcuts bool "json:\"siri-shortcuts\""; ShadingSlatsValues bool "json:\"shading.slats.values\""; AlarmGapsNotifications bool "json:\"alarm.gaps.notifications\""; PsmPcPairing bool "json:\"psm.pc.pairing\""; SmartLightPairing bool "json:\"smart-light.pairing\""; WlsPairing bool "json:\"wls.pairing\""; CamerasExtension bool "json:\"cameras.extension\""; ShadingAdvanceMenu bool "json:\"shading.advance.menu\""; AppStoreRatingAndroid bool "json:\"app-store-rating.android\""; AnalyticsToggle bool "json:\"analytics.toggle\""; WhitegoodsPairing bool "json:\"whitegoods.pairing\""; CloudTokenvalidation bool "json:\"cloud.tokenvalidation\"" }) {
+  AppStoreRatingIos: (bool) false,
+  AppLogging: (bool) false,
+  SiriShortcuts: (bool) false,
+  ShadingSlatsValues: (bool) false,
+  AlarmGapsNotifications: (bool) false,
+  PsmPcPairing: (bool) false,
+  SmartLightPairing: (bool) false,
+  WlsPairing: (bool) false,
+  CamerasExtension: (bool) false,
+  ShadingAdvanceMenu: (bool) false,
+  AppStoreRatingAndroid: (bool) false,
+  AnalyticsToggle: (bool) false,
+  WhitegoodsPairing: (bool) false,
+  CloudTokenvalidation: (bool) false
+ },
+ ConnectivityVersions: ([]struct { Name string "json:\"name\""; MinVersion int "json:\"minVersion\""; MaxVersion int "json:\"maxVersion\"" }) <nil>
+}
+(*url.Error)(0xc00045a210)(Get "https://192.168.1.19:8446/smarthome/public/information": x509: cannot validate certificate for 192.168.1.19 because it doesn't contain any IP SANs)

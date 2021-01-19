@@ -5,24 +5,25 @@ import (
 	"io/ioutil"
 )
 
-type Config struct {
-	MqttBrokerUrl string
+type config struct {
+	MqttBrokerURL string
 	MqttClientID  string
 	MqttUsername  string
 	MqttPassword  string
+	ShcIPAddress  string
 	Loglevel      string
 }
 
-func configFromFile(path string) (config *Config, e error) {
+func configFromFile(path string) (c *config, e error) {
 	data, err := ioutil.ReadFile(path)
 
 	if err != nil {
 		return nil, err
 	}
-	var c Config
-	err = json.Unmarshal(data, &c)
+	var ctemp config
+	err = json.Unmarshal(data, &ctemp)
 	if err != nil {
 		return nil, err
 	}
-	return &c, nil
+	return &ctemp, nil
 }

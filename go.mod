@@ -3,6 +3,7 @@ module github.com/crenz/bosch-shc-mqtt
 go 1.15
 
 require (
+	github.com/davecgh/go-spew v1.1.1
 	github.com/kr/text v0.2.0 // indirect
 	github.com/mattn/go-colorable v0.1.8
 	github.com/sirupsen/logrus v1.7.0
