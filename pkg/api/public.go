@@ -42,6 +42,8 @@ type Information struct {
 	} `json:"connectivityVersions"`
 }
 
+const uriInformation = ":8446/smarthome/public/information"
+
 // Information returns publicly available information from the Bosch Smart Home Controller
 func (b *boschShcAPI) Information() (i Information, e error) {
 	e = b.get(uriInformation, i)
